@@ -22,8 +22,8 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author usuario
  */
 public class Generador {
-    //Recibe una lista de los objetos en cuestión, la ruta RELATIVA del informe ".jasper" situado en la carpeta src/main/resources/informe, y el nombre del informe de salida, acabado en ".pdf"
-    public static void leerInformeBD(List<Object> lista, String rutaInforme, String nombreInformeSalida){
+    //////////////////////////////  PLANTILLA   //////////////////////////////
+    /*public static void leerInforme(List<> lista, String rutaInforme, String nombreInformeSalida){
         try {
             JasperPrint print;
             HashMap param = new HashMap();
@@ -36,5 +36,8 @@ public class Generador {
         } catch (JRException ex) {
             Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
+    
+   /***********GENERAR METODOS PARA LEER INFORMES SEGUN SE NECESITE***********/
+    
 }
