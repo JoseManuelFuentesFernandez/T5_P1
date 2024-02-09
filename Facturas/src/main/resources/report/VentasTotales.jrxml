@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VentasTotales" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c563425e-29a8-4963-a8ea-2f9922792c6a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="totalVendidos" class="java.lang.Integer"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="precio" class="java.lang.Double"/>
+	<variable name="ventaTotal" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{precio} * $F{totalVendidos}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement x="141" y="23" width="399" height="62" forecolor="#006666" uuid="24dc9aeb-ed11-49ca-a97d-2c8e9d46f6c5"/>
+				<textElement>
+					<font fontName="Microsoft Himalaya" size="60" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[VENTAS TOTALES]]></text>
+			</staticText>
+			<image>
+				<reportElement x="49" y="11" width="75" height="75" uuid="be288d32-1909-49bc-8d66-4e8ace2de834"/>
+				<imageExpression><![CDATA["..\\img\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="209" y="10" width="254" height="20" forecolor="#006666" uuid="4555018f-b61d-4319-adae-51f8b3ffb583"/>
+				<textElement>
+					<font fontName="Microsoft Himalaya" size="18" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Listado de los productos unidades vendidas]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="0" y="0" width="100" height="20" forecolor="#006666" uuid="1c478667-d289-49b8-8be7-06d4e8d86173"/>
+				<textElement>
+					<font fontName="Microsoft Himalaya" size="16" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="59" y="11" width="124" height="20" forecolor="#006666" uuid="bd7335f8-e764-4661-a888-c406de3ad646"/>
+				<textElement>
+					<font fontName="Microsoft Himalaya" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="11" width="101" height="20" forecolor="#006666" uuid="c8ed9cf2-51cd-43b7-9390-8f9a052b5f9a"/>
+				<textElement>
+					<font fontName="Microsoft Himalaya" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Vendidos]]></text>
+			</staticText>
+			<line>
+				<reportElement x="7" y="31" width="522" height="1" uuid="753ed169-41ef-4fd0-bacc-304e6f61c353"/>
+			</line>
+			<staticText>
+				<reportElement x="449" y="11" width="80" height="20" forecolor="#006666" uuid="d3bfe30f-0120-4f61-a181-75f995d91f97"/>
+				<textElement>
+					<font fontName="Microsoft Himalaya" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Venta Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="11" width="31" height="20" forecolor="#006666" uuid="79dfc26f-f0f6-473c-9c45-aa0546838ac2"/>
+				<textElement>
+					<font fontName="Microsoft Himalaya" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="11" width="65" height="20" forecolor="#006666" uuid="8888f849-2176-40e9-b8d8-a42d71b41cea"/>
+				<textElement>
+					<font fontName="Microsoft Himalaya" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="333" y="9" width="101" height="20" uuid="11e98008-f7a9-4a15-b710-d1be6c52781c"/>
+				<textElement>
+					<font fontName="Cascadia Code"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalVendidos}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="7" y="34" width="522" height="1" uuid="7c8b5b8d-60fd-40d6-a4c7-ab33983b4583"/>
+				<graphicElement>
+					<pen lineStyle="Dashed" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="58" y="9" width="174" height="20" uuid="da7edb9a-d82f-409f-aec6-698b55a90c65"/>
+				<textElement>
+					<font fontName="Cascadia Code"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="9" width="78" height="20" uuid="7e56bd01-6336-47aa-8ddf-0d09b99ea3f3"/>
+				<textFieldExpression><![CDATA[$V{ventaTotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="18" y="9" width="31" height="20" uuid="9b8f7dee-8cde-4710-9385-9774266394e1"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="9" width="65" height="20" uuid="fecde105-569a-4e4f-ad93-962dd40826b3"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="27">
+			<textField>
+				<reportElement x="529" y="7" width="26" height="20" uuid="b575be28-7f4d-4512-8a8e-ac8785cd9f16"/>
+				<textElement>
+					<font fontName="Microsoft Himalaya" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="322" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="0" y="17" width="555" height="305" uuid="449b919f-0eed-4618-8092-99420e984cb1"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{nombre}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{id}]]></categoryExpression>
+						<valueExpression><![CDATA[$V{ventaTotal}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>
