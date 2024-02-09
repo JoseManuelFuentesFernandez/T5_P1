@@ -164,6 +164,18 @@ public class AddressJpaController implements Serializable {
         return findAddressEntities(true, -1, -1);
     }
 
+    public List<Address> encontrarAddressPorId(int  id) {
+        EntityManager em = getEntityManager();
+        try {
+            TypedQuery tq=em.createNamedQuery("Address.findById", Address.class);
+            tq.setParameter("id",id);
+            List<Address> lista=tq.getResultList();
+           return lista;
+        } finally {
+            em.close();
+        }
+    }
+
     public List<Address> findAddressEntities(int maxResults, int firstResult) {
         return findAddressEntities(false, maxResults, firstResult);
     }
