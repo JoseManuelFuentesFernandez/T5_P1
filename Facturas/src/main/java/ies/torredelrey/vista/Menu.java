@@ -166,7 +166,7 @@ public class Menu extends javax.swing.JFrame {
             }
             
             //********************************************************************************************************************
-            String rutaInforme = "src\\main\\resources\\report\\+"   +"XXXXX"+   ".jasper"; //MODIFICAR SOLO EL NOMBRE DEL .JASPER
+            String rutaInforme = "src\\main\\resources\\report\\"   +"VentasTotales"+   ".jasper"; //MODIFICAR SOLO EL NOMBRE DEL .JASPER
             String nombreInformeSalida = "VentasTotales.pdf"; //ACABADO EN .PDF SIEMPRE
             //*************************************************************************
             
