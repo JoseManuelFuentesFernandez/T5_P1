@@ -25,6 +25,7 @@ import net.sf.jasperreports.view.JasperViewer;
 public class Generador {
     //////////////////////////////  PLANTILLA   //////////////////////////////
     /*public static void leerInforme(List<> lista, String rutaInforme, String nombreInformeSalida){
+<<<<<<< HEAD
         try {
             JasperPrint print;
             HashMap param = new HashMap();
@@ -42,6 +43,8 @@ public class Generador {
    /***********GENERAR METODOS PARA LEER INFORMES SEGUN SE NECESITE***********/
     
     public static void leerInformeVentasTotales(List<CantidadProducto> lista, String rutaInforme, String nombreInformeSalida){
+=======
+>>>>>>> 15bad44f0fc7ad6cb7595a6c279d657e91947ab0
         try {
             JasperPrint print;
             HashMap param = new HashMap();
@@ -54,6 +57,14 @@ public class Generador {
         } catch (JRException ex) {
             Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
         }
+<<<<<<< HEAD
     }
     
 }
+=======
+    }*/
+    
+   /***********GENERAR METODOS PARA LEER INFORMES SEGUN SE NECESITE***********/
+    
+}
+>>>>>>> 15bad44f0fc7ad6cb7595a6c279d657e91947ab0
