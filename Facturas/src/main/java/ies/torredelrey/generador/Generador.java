@@ -4,8 +4,10 @@
  */
 package ies.torredelrey.generador;
 
+import ies.torredelrey.modelo.Address;
 import ies.torredelrey.modelo.ProductoVentas;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
