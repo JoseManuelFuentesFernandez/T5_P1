@@ -24,4 +24,5 @@ ies\torredelrey\modelo\Address_.class
 ies\torredelrey\controlador\exceptions\NonexistentEntityException.class
 ies\torredelrey\controlador\AddressJpaController.class
 ies\torredelrey\vista\Menu$4.class
+ies\torredelrey\modelo\CantidadProducto.class
 ies\torredelrey\modelo\PositionsPK_.class

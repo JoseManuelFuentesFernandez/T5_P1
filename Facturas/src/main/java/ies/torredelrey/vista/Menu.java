@@ -9,10 +9,21 @@ import ies.torredelrey.controlador.DocumentJpaController;
 import ies.torredelrey.controlador.OrdersJpaController;
 import ies.torredelrey.controlador.PositionsJpaController;
 import ies.torredelrey.controlador.ProductJpaController;
+import ies.torredelrey.generador.Generador;
+import ies.torredelrey.modelo.CantidadProducto;
+import ies.torredelrey.modelo.Product;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import javax.crypto.AEADBadTagException;
 import javax.persistence.Entity;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,6 +40,7 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form Menu
      */
+    
     public Menu() {
         initComponents();
         
@@ -115,7 +127,46 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemListadoFacturasActionPerformed
 
     private void jMenuItemVentasTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVentasTotalesActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here: totalVendidos
+        // Obtener datos de la interfaz, si es necesario
+        List<Product> productos = productController.findProductEntities();
+        List<CantidadProducto> cantidadProductos = new ArrayList<>();
+        // Establecer la conexión a la base de datos
+            try {
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/samplebd", "root", "admin");
+                CantidadProducto cantidadProducto = new CantidadProducto();
+                
+                // Preparar la consulta SQL
+                for(Product producto : productos){
+                    String sql = "SELECT SUM(QUANTITY) FROM positions WHERE PRODUCTID=?";
+
+                    PreparedStatement pstmt = conn.prepareStatement(sql);
+                    pstmt.setInt(1, producto.getId());
+
+                    // Ejecutar la consulta
+                  
+                    ResultSet rs = pstmt.executeQuery();
+                    if(rs.next()){
+                        cantidadProducto.setNombre(producto.getName());
+                        cantidadProducto.setTotalVendidos(rs.getInt(1));
+                        System.out.println(cantidadProducto);
+                        cantidadProductos.add(cantidadProducto); 
+                    }else{
+                        System.out.println("Error");
+                    }
+                    
+                    
+                  rs.close();
+                  pstmt.close();
+                }
+        
+                // Cerrar recursos
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            String ruta = "src\\main\\resources\\iReport\\InformeVentaTotales.jasper";
+            Generador.leerInformeVentasTotales(cantidadProductos,ruta,"Nombre.pdf");
     }//GEN-LAST:event_jMenuItemVentasTotalesActionPerformed
 
     private void jMenuItemFacturasClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFacturasClienteActionPerformed

@@ -4,6 +4,7 @@
  */
 package ies.torredelrey.generador;
 
+import ies.torredelrey.modelo.CantidadProducto;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
@@ -22,8 +23,25 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author usuario
  */
 public class Generador {
-    //Recibe una lista de los objetos en cuestión, la ruta RELATIVA del informe ".jasper" situado en la carpeta src/main/resources/informe, y el nombre del informe de salida, acabado en ".pdf"
-    public static void leerInformeBD(List<Object> lista, String rutaInforme, String nombreInformeSalida){
+    //////////////////////////////  PLANTILLA   //////////////////////////////
+    /*public static void leerInforme(List<> lista, String rutaInforme, String nombreInformeSalida){
+        try {
+            JasperPrint print;
+            HashMap param = new HashMap();
+            param.put("fecha", LocalDate.now().toString());
+
+            JRDataSource datasource = new JRBeanArrayDataSource(lista.toArray());
+            print = JasperFillManager.fillReport(rutaInforme, param,datasource);
+            JasperExportManager.exportReportToPdfFile(print,nombreInformeSalida);
+            JasperViewer.viewReport(print);
+        } catch (JRException ex) {
+            Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }*/
+    
+   /***********GENERAR METODOS PARA LEER INFORMES SEGUN SE NECESITE***********/
+    
+    public static void leerInformeVentasTotales(List<CantidadProducto> lista, String rutaInforme, String nombreInformeSalida){
         try {
             JasperPrint print;
             HashMap param = new HashMap();
@@ -37,4 +55,5 @@ public class Generador {
             Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 }
