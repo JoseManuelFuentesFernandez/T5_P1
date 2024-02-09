@@ -123,7 +123,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemListadoFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemListadoFacturasActionPerformed
-        // TODO add your handling code here:
+        Generador.leerInformeBD(addressController.findAddressEntities(),"listadoFacturasT5.jasper","informelistado.pdf");
     }//GEN-LAST:event_jMenuItemListadoFacturasActionPerformed
 
     private void jMenuItemVentasTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemVentasTotalesActionPerformed
@@ -174,7 +174,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemVentasTotalesActionPerformed
 
     private void jMenuItemFacturasClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemFacturasClienteActionPerformed
-        // TODO add your handling code here:
+        int id = Integer.parseInt(JOptionPane.showInputDialog("Introduce el id del cliente a consultar"));
+        Generador.leerInformeBDParametro(addressController.encontrarAddressPorId(id),id,"listadoFacturasT5.jasper","informelistado.pdf");
     }//GEN-LAST:event_jMenuItemFacturasClienteActionPerformed
 
     /**
