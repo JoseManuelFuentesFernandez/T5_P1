@@ -23,22 +23,35 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author usuario
  */
 public class Generador {
-    //////////////////////////////  PLANTILLA   //////////////////////////////
-    /*public static void leerInforme(List<> lista, String rutaInforme, String nombreInformeSalida){
-<<<<<<< HEAD
+    public static void leerInformeBD(Collection<Address> listaAddress,String rutaInforme,String nombreInformeSalida){
         try {
             JasperPrint print;
             HashMap param = new HashMap();
-            param.put("fecha", LocalDate.now().toString());
-
-            JRDataSource datasource = new JRBeanArrayDataSource(lista.toArray());
+            param.put("fecha", LocalDate.now().toString());            
+            HashMap paramSubInforme = new HashMap();
+            JRDataSource datasource = new JRBeanArrayDataSource(listaAddress.toArray());
             print = JasperFillManager.fillReport(rutaInforme, param,datasource);
             JasperExportManager.exportReportToPdfFile(print,nombreInformeSalida);
             JasperViewer.viewReport(print);
         } catch (JRException ex) {
             Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+    }
+    
+    public static void leerInformeBDParametro(Collection<Address> listaAddress,int id, String rutaInforme,String nombreInformeSalida){
+        try {
+            JasperPrint print;
+            HashMap param = new HashMap();
+            param.put("id",Integer.toString(id));            
+            HashMap paramSubInforme = new HashMap();
+            JRDataSource datasource = new JRBeanArrayDataSource(listaAddress.toArray());
+            print = JasperFillManager.fillReport(rutaInforme, param,datasource);
+            JasperExportManager.exportReportToPdfFile(print,nombreInformeSalida);
+            JasperViewer.viewReport(print);
+        } catch (JRException ex) {
+            Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
    /***********GENERAR METODOS PARA LEER INFORMES SEGUN SE NECESITE***********/
     
